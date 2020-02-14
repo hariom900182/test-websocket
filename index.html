@@ -1,1 +1,25 @@
 <h1>Hello</h1>
+<div>Messages from .net server</div>
+<div id="msglist">
+	
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(function () {
+    var socket = io();
+     socket.on("server_socket",function(val){
+      	$("#msglist").append("<p>"+val+"</p>")
+      });
+    // $('button').click(function(e){
+
+    //   e.preventDefault(); // prevents page reloading
+    //   //socket.emit('chatmessage', $('#msg').val());
+    //   socket.on("server_socket",function(val){
+    //   	$("#msglist").append("<p>"+val+"</p>")
+    //   })
+    //  // $('#msg').val('');
+    //   return false;
+    // });
+  });
+</script>
